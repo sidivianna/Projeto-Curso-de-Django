@@ -1,9 +1,8 @@
 # Projeto-Curso-de-Django
 Projeto do curso de Django pelo YouTube
 
-Aula 3:
-Iniciando o projeto
-- Criação do projeto
-- Criação de app
-- Diferença entre projeto e app.
-- Criação de uma URL e uma View.
+Aula 5:
+
+Criação de template base e extensão de templates para
+comportar a padronizar o layout do projeto.
+
