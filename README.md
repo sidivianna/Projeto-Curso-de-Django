@@ -6,3 +6,4 @@ Iniciando o projeto
 - Criação do projeto
 - Criação de app
 - Diferença entre projeto e app.
+- Criação de uma URL e uma View.
