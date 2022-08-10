@@ -18,7 +18,7 @@ python .\manage.py migrate
 para criar um usuário admin
 username: admin
 email: admin@admin.com
-senha:0123
+senha:01234
 
 python .\manage.py createsuperuser	
 
