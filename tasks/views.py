@@ -4,7 +4,7 @@ from .forms import TaskForm
 
 from .models import Task
 
-<<<<<<< HEAD
+
 def taskList(request):
     tasks = Task.objects.all().order_by('-created_at')
     return render(request, 'tasks/list.html', {'tasks':tasks})
@@ -31,6 +31,6 @@ def helloWorld(request):
 
 def yourName(request, name):
     return render(request, 'tasks/yourname.html', {'name':name})
-=======
 
->>>>>>> 1-projeto-e-app
+
+
