@@ -39,7 +39,7 @@ def editTask(request, id):
             return render(request, 'tasks/edittask.html', {'form': form, 'task': {task}})
 
     else: 
-        return render(request, 'tasks/edittask.html', {'form': form, 'task': {task}}) #exibição da view no template com os dados pré acoplados.
+        return render(request, 'tasks/edittask.html', {'form': form, 'task': task}) #exibição da view no template com os dados pré acoplados.
 
 def helloWorld(request):
     return HttpResponse('Hello World!')
