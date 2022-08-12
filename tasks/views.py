@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .forms import TaskForm
+from .forms import TaskForm # importar o fomrulário
 
 from .models import Task
 
 
 def taskList(request):
-    tasks = Task.objects.all().order_by('-created_at')
+    tasks = Task.objects.all().order_by('-created_at') #ordenar do mais novo para o mais antigo.
     return render(request, 'tasks/list.html', {'tasks':tasks})
 
 def taskView(request, id):
@@ -15,7 +15,7 @@ def taskView(request, id):
 
 def newTask(request):
     if request.method == 'POST':
-        form = TaskForm(request.POST)
+        form = TaskForm(request.POST) 
         
         if form.is_valid():
             task = form.save(commit=False)
@@ -23,7 +23,7 @@ def newTask(request):
             task.save()
             return redirect('/')
     else:
-        form = TaskForm()
+        form = TaskForm() # definir uma variável chamando ela para o front end.
         return render(request, 'tasks/addtask.html', {'form': form})
 
 def helloWorld(request):
