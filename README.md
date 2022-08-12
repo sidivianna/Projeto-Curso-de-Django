@@ -6,3 +6,4 @@ Parte Create do CRUD:
 Inserir dados no banco.
 - Criar funcionalidade para o botão de adicionar tarefa. Adicionar na lista e acessar as informações.
 Criar uma URL para cadastrar tarefas.
+Passos Url > forms > views > templates(add.task)
