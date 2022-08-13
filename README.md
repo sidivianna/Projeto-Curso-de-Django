@@ -1,7 +1,6 @@
 # Projeto-Curso-de-Django
-Projeto do curso de Django pelo YouTube
+## Projeto do curso de Django pelo YouTube
 
-
-Aula 6:
-Adicionando os assets do projeto. (arquivos de CSS e JavaScript)
+### Aula 6:
+- Adicionando os assets do projeto. (arquivos de CSS e JavaScript)
 
