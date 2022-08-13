@@ -1,8 +1,8 @@
 # Projeto-Curso-de-Django
 Projeto do curso de Django pelo YouTube
 
-Aula 10:
-Parte Create do CRUD:
-Inserir dados no banco.
-- Criar funcionalidade para o botão de adicionar tarefa. Adicionar na lista e acessar as informações.
-Criar uma URL para cadastrar tarefas.
+Aula 11:
+Parte Update do CRUD:
+- Atualizar as tarefas pelo front-end da aplicação.
+Passos Url >  views > templates(edittask)
+-criar o link no arquivo list.
