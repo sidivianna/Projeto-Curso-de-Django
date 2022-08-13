@@ -1,7 +1,8 @@
 # Projeto-Curso-de-Django
-Projeto do curso de Django pelo YouTube
+## Projeto do curso de Django pelo YouTube
 
-Aula 4:
+### Aula 4:
+
 Como criar uma url:
 - função path que recebe três argumentos:
 url:
