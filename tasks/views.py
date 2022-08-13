@@ -1,3 +1,4 @@
+from re import search
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.http import HttpResponse
@@ -7,12 +8,21 @@ from django.contrib import messages
 from .models import Task
 
 def taskList(request):
-    tasks_list = Task.objects.all().order_by('-created_at') #ordenar do mais novo para o mais antigo.
-    paginator = Paginator(tasks_list, 3)
 
-    page = request.GET.get('page')
+    search = request.GET.get('search')
 
-    tasks = paginator.get_page(page)
+    if search:
+
+        tasks = Task.objects.filter(title__icontains=search) #fazer a busca de acordo com o que tiver esceito na aba de buscas.
+
+    else:
+
+        tasks_list = Task.objects.all().order_by('-created_at') #ordenar do mais novo para o mais antigo.
+        paginator = Paginator(tasks_list, 3)
+
+        page = request.GET.get('page')
+
+        tasks = paginator.get_page(page)
 
     return render(request, 'tasks/list.html', {'tasks':tasks})
 
