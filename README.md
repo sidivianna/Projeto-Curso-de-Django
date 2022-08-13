@@ -1,7 +1,8 @@
 # Projeto-Curso-de-Django
-Projeto do curso de Django pelo YouTube
+## Projeto do curso de Django pelo YouTube
 
-Aula 3:
+### Aula 3:
+
 Iniciando o projeto
 - Criação do projeto
 - Criação de app
