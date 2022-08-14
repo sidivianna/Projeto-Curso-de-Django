@@ -1,12 +1,15 @@
 # Projeto-Curso-de-Django
 ## Projeto do curso de Django pelo YouTube
 
-### Aula 15:
+### Aula 16:
+Registro de usuários:
+Com esta funcionalidade de registro, os usuários já poderão se cadastrar e fazer a autenticação no projeto.
+- criar um aplicativo novo para criar o registro de usuários.
 
-configuração do sistema de login já presente no Django
-- Importar as urls no projeto. (pasta urls, acounts)
-- Configurar setings/templates/DIRS/
-- Criar pasta templates na raiz do projeto.
-- Criar sistema de autenticação e proteger as rotas das views dentro do sistema.
-- (base.html) 
-- Aplicação do login required no sistema.
+Comando para o prompt:
+- Python .\manage.py startapp accounts
+
+Registrar no setings.py
+- Criar um arquivo urls.py nesta nova pasta acounts e cria a url nova.
+- No arquivo views importar formulário, reverse_lazy para redirecionar o usuário e generic.
+
