@@ -28,10 +28,10 @@
 
 /* Botão de adicionar */
 
+
 #add-link {
     text-decoration: none;
 }
-
 
 .add-div {
     background-color: #3476e2;
@@ -83,6 +83,10 @@
     border-bottom: 1px dashed #CCC;
 }
 
+.task-item.done {
+    background-color: #CCC;
+}  
+
 .fas.fa-trash {
     color: #db1e47;
     cursor: pointer;
@@ -99,8 +103,19 @@
     float: right;
 }
 
-/* Rodapé */
+.fa-check {
+    color: #CCC;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 20px;
+    float: right;
+}
 
+.done .fa-check {
+    color: #3476e2;
+}
+
+/* Rodapé */
 footer {
     background-color: #333;
     height: 300px;
@@ -140,7 +155,7 @@ ul.messages li {
     margin-right: 5px;
 }
 
-/* Login */
+/* login */
 
 .auth-card {
     margin-bottom: 30px;
