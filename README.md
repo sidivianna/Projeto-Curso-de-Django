@@ -3,7 +3,7 @@
 
 ### Aula 15:
 
-Sistema de login já presente no Django
+configuração do sistema de login já presente no Django
 - Importar as urls no projeto. (pasta urls, acounts)
 - Configurar setings/templates/DIRS/
 - Criar pasta templates na raiz do projeto.
