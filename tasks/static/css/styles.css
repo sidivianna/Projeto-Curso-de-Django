@@ -65,6 +65,19 @@
     display: inline-block;
 }
 
+/* Filter */
+
+.filter-div {
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+#filter {
+    display: inline-block;
+    width: 200px;
+    margin-left: 10px;
+}
+
 /* Lista de tarefas */
 
 .list-div {
@@ -79,6 +92,7 @@
     list-style: none;
     font-size: 20px;
     height: 50px;
+    padding: 0 15px;
     padding-top: 10px;
     border-bottom: 1px dashed #CCC;
 }
@@ -116,6 +130,7 @@
 }
 
 /* Rodapé */
+
 footer {
     background-color: #333;
     height: 300px;
@@ -140,6 +155,7 @@ ul.messages li {
 }
 
 /* Paginação */
+
 .pagination {
     margin-bottom: 20px;
 }

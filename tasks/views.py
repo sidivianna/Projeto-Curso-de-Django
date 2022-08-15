@@ -3,23 +3,26 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.http import HttpResponse
-from .forms import TaskForm # importar o fomrulário
+from .forms import TaskForm
 from django.contrib import messages
 
 from .models import Task
 
 @login_required
 def taskList(request):
-
+    
     search = request.GET.get('search')
+    filter = request.GET.get('filter')
 
     if search:
+        tasks = Task.objects.filter(title__icontains=search, user=request.user)
 
-        tasks = Task.objects.filter(title__icontains=search, user=request.user) #fazer a busca de acordo com o que tiver esceito na aba de buscas.
-
+    elif filter:
+        tasks = Task.objects.filter(done=filter, user=request.user)
+    
     else:
+        tasks_list = Task.objects.all().order_by('-created_at').filter(user=request.user)
 
-        tasks_list = Task.objects.all().order_by('-created_at').filter(user=request.user)#ordenar do mais novo para o mais antigo.
         paginator = Paginator(tasks_list, 3)
 
         page = request.GET.get('page')
@@ -36,7 +39,7 @@ def taskView(request, id):
 @login_required
 def newTask(request):
     if request.method == 'POST':
-        form = TaskForm(request.POST) 
+        form = TaskForm(request.POST)
         
         if form.is_valid():
             task = form.save(commit=False)
@@ -45,25 +48,24 @@ def newTask(request):
             task.save()
             return redirect('/')
     else:
-        form = TaskForm() # definir uma variável chamando ela para o front end.
+        form = TaskForm()
         return render(request, 'tasks/addtask.html', {'form': form})
 
 @login_required
 def editTask(request, id):
-    task = get_object_or_404(Task, pk=id) # model referência
-    form = TaskForm(instance=task) #puxar o formulário e mostrar para o usuário.
-    
-    if(request.method == "POST"):
-        form = TaskForm(request.POST, instance=task) 
+    task = get_object_or_404(Task, pk=id)
+    form = TaskForm(instance=task)
+
+    if(request.method == 'POST'):
+        form = TaskForm(request.POST, instance=task)
 
         if(form.is_valid()):
             task.save()
             return redirect('/')
         else:
-            return render(request, 'tasks/edittask.html', {'form': form, 'task': task})
-
-    else: 
-        return render(request, 'tasks/edittask.html', {'form': form, 'task': task}) #exibição da view no template com os dados pré acoplados.
+            return render(request, 'task/edittask.html', {'form': form, 'task': task})
+    else:
+        return render(request, 'tasks/edittask.html', {'form': form, 'task': task})
 
 @login_required
 def deleteTask(request, id):
@@ -78,22 +80,21 @@ def deleteTask(request, id):
 def changeStatus(request, id):
     task = get_object_or_404(Task, pk=id)
 
-    if(task.done == 'doing'):
+    if task.done == 'doing':
         task.done = 'done'
     else:
         task.done = 'doing'
-    
+
     task.save()
 
     return redirect('/')
 
-
-
+@login_required
 def helloWorld(request):
     return HttpResponse('Hello World!')
-
+    
+@login_required
 def yourName(request, name):
     return render(request, 'tasks/yourname.html', {'name':name})
-
 
 
