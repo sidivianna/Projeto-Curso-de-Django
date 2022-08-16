@@ -11,3 +11,4 @@ Criação da lógica para a contagem de tarefas com base nos status de concluíd
 - Resumo das tarefas do usuário.
 - Criação da dashboard na pasta list.html
 - Estilização do dashboard no css.
+
