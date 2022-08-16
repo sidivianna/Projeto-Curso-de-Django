@@ -1,10 +1,10 @@
-from re import search
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from .forms import TaskForm
 from django.contrib import messages
+import datetime
 
 from .models import Task
 
@@ -13,23 +13,24 @@ def taskList(request):
     
     search = request.GET.get('search')
     filter = request.GET.get('filter')
+    tasksDoneRecently = Task.objects.filter(done='done', updated_at__gt=datetime.datetime.now()-datetime.timedelta(days=30)).count()
+    tasksDone = Task.objects.filter(done='done', user=request.user).count()
+    tasksDoing = Task.objects.filter(done='doing', user=request.user).count()
 
     if search:
         tasks = Task.objects.filter(title__icontains=search, user=request.user)
-
     elif filter:
         tasks = Task.objects.filter(done=filter, user=request.user)
-    
     else:
         tasks_list = Task.objects.all().order_by('-created_at').filter(user=request.user)
 
         paginator = Paginator(tasks_list, 3)
 
         page = request.GET.get('page')
-
         tasks = paginator.get_page(page)
 
-    return render(request, 'tasks/list.html', {'tasks':tasks})
+    return render(request, 'tasks/list.html', 
+        {'tasks':tasks, 'tasksrecently': tasksDoneRecently, 'tasksdone': tasksDone, 'tasksdoing': tasksDoing })
 
 @login_required
 def taskView(request, id):
@@ -80,7 +81,7 @@ def deleteTask(request, id):
 def changeStatus(request, id):
     task = get_object_or_404(Task, pk=id)
 
-    if task.done == 'doing':
+    if(task.done == 'doing'):
         task.done = 'done'
     else:
         task.done = 'doing'
@@ -96,5 +97,3 @@ def helloWorld(request):
 @login_required
 def yourName(request, name):
     return render(request, 'tasks/yourname.html', {'name':name})
-
-
