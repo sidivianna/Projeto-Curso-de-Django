@@ -13,6 +13,8 @@ Funcionalidades atribuídas:
 - CRUD (creat, read, update, delete);
 - Autenticação em regitro de usuário;
 - Dashboar responsiva as alteações das terefas realizadas pelo usuário;
+- Busca no site;
+- Filtros por tarefas;
 
 Tecnologias utilizadas:
 
