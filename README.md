@@ -7,6 +7,7 @@
 ### Projeto To Do 
 
 Projeto de um site para organização de lista de tarefas utilizando o framework Django.
+O site foi desenvolvido no decorrer das aulas do curso.
 
 Funcionalidades atribuídas:
 
