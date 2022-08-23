@@ -1,6 +1,6 @@
 
 # <center/>Projeto-Curso-de-Django<center/>
-## Projeto do curso de Django pelo YouTube
+## Projeto de um site para organização de lista de tarefas utilizando o framework Django.
 
 ![Captura de Tela (122)](https://user-images.githubusercontent.com/103837121/184902803-ed122517-4133-4917-aaeb-f908084ac839.png)
 
